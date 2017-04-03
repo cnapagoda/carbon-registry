@@ -16,10 +16,11 @@
  ~ under the License.
  -->
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%@ page import="org.owasp.encoder.Encode" %>
 <%@ page import="org.wso2.carbon.registry.resource.ui.Utils" %>
 <%    
     String path = Utils.getResourcePath(request);
     String synapseRegistryRoot = Utils.getSynapseRoot(request);      
     String resolvedPath = Utils.resolveResourceKey(path, synapseRegistryRoot);
 %>
-<%=resolvedPath%>
+<%=Encode.forHtml(resolvedPath)%>

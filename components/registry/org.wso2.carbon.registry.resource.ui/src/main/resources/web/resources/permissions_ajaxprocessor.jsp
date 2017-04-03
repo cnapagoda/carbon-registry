@@ -18,6 +18,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<%@ page import="org.owasp.encoder.Encode" %>
 <%@ page import="org.wso2.carbon.utils.ServerConstants" %>
 <%@ page import="org.wso2.carbon.registry.resource.ui.clients.ResourceServiceClient" %>
 <%@ page import="org.wso2.carbon.registry.resource.stub.beans.xsd.PermissionBean" %>
@@ -253,7 +254,7 @@
                                     if (roles == null) roles = new String[0];
                                     for (String regRole : roles) {
                                         %>
-                                        <option value="<%=regRole%>"><%=regRole%>
+                                        <option value="<%=Encode.forHtml(regRole)%>"><%=Encode.forHtml(regRole)%>
                                         </option>
                                         <%
                                       }
